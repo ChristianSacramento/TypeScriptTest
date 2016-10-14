@@ -47,7 +47,6 @@
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="js\jquery-3.1.1.min.js" />
-    <Content Include="js\kendo.all.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -57,10 +56,10 @@
     <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\images\kendoui.ttf" />
-    <Content Include="css\images\kendoui.woff" />
     <Content Include="package.json" />
     <Content Include="tsd.json" />
+    <Content Include="css\images\kendoui.ttf" />
+    <Content Include="css\images\kendoui.woff" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -68,6 +67,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

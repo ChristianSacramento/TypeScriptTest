@@ -90,25 +90,73 @@ class ViewModel extends kendo.data.ObservableObject {
 }
 
 $(function () {
+    
+    
     var viewModel = new ViewModel();
     kendo.bind($('#divChristian'), viewModel);
-    // kendo.bind(document.body, viewModel);
-    // viewModel.set("person.name", "Jane Doe");
    
     $('#treeview').kendoTreeView({
-        dragAndDrop: true,
-        checkboxes: {
-            name: "checkedItems[]"
-        },
-        select: function(e){
-            console.log("Selecting", e.node);
-            var nameSelected =  $(e.node).find('span.k-state-focused').text();
-            viewModel.set('person.name', nameSelected);
-        },  
         dataSource: viewModel.person.getDataSource()
+    });
+    var trevi = <kendo.ui.TreeView>$('#treeview').data('kendoTreeView');
+
+    $('#txtIns').kendoMaskedTextBox({
+    });
+    var maskt = <kendo.ui.MaskedTextBox>$('#txtIns').data('kendoMaskedTextBox')
+    maskt.bind('change', function(sender, eventargs){
+        viewModel.set('person.name', this.value());
+    });
+    
+    $("#ddl").kendoDropDownList(
+        {
+            dataSource: [
+                            { id: 1, name: "Apples" },
+                            { id: 2, name: "Oranges" }
+                        ],
+            dataTextField: "name",
+            dataValueField: "id"
+        }
+    );
+    var drpd =  <kendo.ui.DropDownList>$("#ddl").data('kendoDropDownList');
+    drpd.bind("select", function(sender,eventargs){
+        viewModel.set('person.name', sender.dataItem.name);
     });
 
 
+
+    // $('#treeview').kendoTreeView({
+    //     dragAndDrop: true,
+    //     checkboxes: {
+    //         name: "checkedItems[]"
+    //     },
+    //     select: function(e){
+    //         console.log("Selecting", e.node);
+    //         var nameSelected =  $(e.node).find('span.k-state-focused').text();
+    //         viewModel.set('person.name', nameSelected);
+    //     },  
+    //     dataSource: viewModel.person.getDataSource()
+    // });
+
+
+    var vm = {
+        foo: [ 
+            {id:1,name:"one"}, 
+            {id:2,name:"two"} 
+        ]
+    }
+    kendo.bind($('#contentDdl'), vm);
+    
+    
+    // $("#ddl").data("kendoDropDownList").list.width(400);
+    // $("#ddl").kendoDropDownList({
+    //     dataBound: function(e){
+    //         console.log(this.dataItem());
+    //     },
+    //     select: function(e){
+    //         viewModel.set('person.name', e.dataItem);
+    //     }
+    // }).width(400)
+   
 
 });
 

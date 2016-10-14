@@ -18,10 +18,14 @@
     
     <div id="divChristian">
         <div id="treeview"></div>
-        <input type="text" data-bind="value: person.name">
+        <input type="text" data-bind="value: person.name" />
         <span data-bind="text: person.name"></span>
     </div>
-
+    <br>
+    <div id="contentDdl">
+        <input id="txtIns" type="text" data-role="maskedtextbox" /><button id="btnIns" ></button>
+        <input id="ddl" data-role="dropdownlist" data-bind="source: foo" />
+    </div>
     
 </body>
 </html>
