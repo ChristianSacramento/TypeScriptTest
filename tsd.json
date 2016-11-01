@@ -7,6 +7,9 @@
   "installed": {
     "jquery/jquery.d.ts": {
       "commit": "2c65d5ca7267fda6d49a3b447c8b089632fb5358"
+    },
+    "underscore/underscore.d.ts": {
+      "commit": "4a3c0197cc63cffda7570844c3f6ebc9f4475587"
     }
   }
 }

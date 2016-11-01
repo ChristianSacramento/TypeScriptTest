@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/kendo.all.min.js"></script>
+    <script src="node_modules/underscore/underscore.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
@@ -21,11 +22,15 @@
         <input type="text" data-bind="value: person.name" />
         <span data-bind="text: person.name"></span>
     </div>
-    <br>
+    <br> 
+
     <div id="contentDdl">
         <input id="txtIns" type="text" data-role="maskedtextbox" /><button id="btnIns" ></button>
         <input id="ddl" data-role="dropdownlist" data-bind="source: foo" />
+        <button id="btnHere" data-role="button" data-sprite-css-class="k-icon k-edit" style="width:180px">Click here</button>
     </div>
     
+    
+
 </body>
 </html>

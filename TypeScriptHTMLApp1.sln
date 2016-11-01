@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeScriptHTMLApp1", "TypeScriptHTMLApp1.csproj", "{393C5B58-7B94-474A-B80F-38EBE01A07DF}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database1", "..\Database1\Database1.sqlproj", "{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "..\WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{5701F014-0869-4ECE-8460-917322C90400}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{393C5B58-7B94-474A-B80F-38EBE01A07DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{393C5B58-7B94-474A-B80F-38EBE01A07DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{393C5B58-7B94-474A-B80F-38EBE01A07DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A4AAA1-EAB5-4318-BD1E-D5B6C6385875}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5701F014-0869-4ECE-8460-917322C90400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5701F014-0869-4ECE-8460-917322C90400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5701F014-0869-4ECE-8460-917322C90400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5701F014-0869-4ECE-8460-917322C90400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

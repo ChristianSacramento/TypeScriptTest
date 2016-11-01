@@ -1,5 +1,6 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
 /// <reference path="ts/kendo.all.d.ts" />
+/// <reference path="typings/underscore/underscore.d.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -51,6 +52,7 @@ var Person = (function (_super) {
                             text: "Christian",
                             items: [
                                 {
+                                    id: 5,
                                     text: "Sacramento"
                                 }
                             ]
@@ -62,6 +64,7 @@ var Person = (function (_super) {
                     text: "paperino",
                     items: [
                         {
+                            id: 4,
                             text: "paperopoli"
                         }
                     ]
@@ -82,6 +85,14 @@ var ViewModel = (function (_super) {
     return ViewModel;
 }(kendo.data.ObservableObject));
 $(function () {
+    //Inizio creazione oggetto DTO da utilizzare per la DropDownList
+    var objDTO = function () {
+        var self = this;
+        self.id = 0;
+        self.name = "";
+        self.listObjDTO = [];
+    };
+    //Fine creazione oggetto DTO da utlizzare per la DropDownList    
     var viewModel = new ViewModel();
     kendo.bind($('#divChristian'), viewModel);
     $('#treeview').kendoTreeView({
@@ -105,6 +116,18 @@ $(function () {
     drpd.bind("select", function (sender, eventargs) {
         viewModel.set('person.name', sender.dataItem.name);
     });
+    $('#btnHere').kendoButton();
+    var btnH = $('#btnHere').data("kendoButton");
+    btnH.bind("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/GetData",
+            dataType: "json",
+            success: function (response) {
+                alert('OK');
+            }
+        });
+    });
     // $('#treeview').kendoTreeView({
     //     dragAndDrop: true,
     //     checkboxes: {
@@ -124,18 +147,10 @@ $(function () {
         ]
     };
     kendo.bind($('#contentDdl'), vm);
-    // $("#ddl").data("kendoDropDownList").list.width(400);
-    // $("#ddl").kendoDropDownList({
-    //     dataBound: function(e){
-    //         console.log(this.dataItem());
-    //     },
-    //     select: function(e){
-    //         viewModel.set('person.name', e.dataItem);
-    //     }
-    // }).width(400)
 });
 window.onload = function () {
     // var el = document.getElementById('content');
     // var greeter = new Greeter(el);
     // greeter.start();
 };
+//# sourceMappingURL=app.js.map

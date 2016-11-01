@@ -1,5 +1,6 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
 /// <reference path="ts/kendo.all.d.ts" />
+/// <reference path="typings/underscore/underscore.d.ts" />
 
 class Greeter {
     element: HTMLElement;
@@ -58,6 +59,7 @@ class Person extends kendo.data.ObservableObject {
                                 text: "Christian",
                                 items: [
                                     {
+                                        id: 5,
                                         text: "Sacramento"
                                     }
                                 ]
@@ -69,6 +71,7 @@ class Person extends kendo.data.ObservableObject {
                         text: "paperino",
                         items: [
                             {
+                                id: 4,
                                 text: "paperopoli"
                             }
                         ]
@@ -86,11 +89,22 @@ class ViewModel extends kendo.data.ObservableObject {
         super();
 
         super.init(this);
-    }
+    }   
 }
 
 $(function () {
+
     
+    //Inizio creazione oggetto DTO da utilizzare per la DropDownList
+    var objDTO = function(){
+        var self = this;
+        self.id = 0;
+        self.name = "";
+        self.listObjDTO = [];
+    }
+    //Fine creazione oggetto DTO da utlizzare per la DropDownList    
+
+
     
     var viewModel = new ViewModel();
     kendo.bind($('#divChristian'), viewModel);
@@ -102,7 +116,7 @@ $(function () {
 
     $('#txtIns').kendoMaskedTextBox({
     });
-    var maskt = <kendo.ui.MaskedTextBox>$('#txtIns').data('kendoMaskedTextBox')
+    var maskt = <kendo.ui.MaskedTextBox>$('#txtIns').data('kendoMaskedTextBox');
     maskt.bind('change', function(sender, eventargs){
         viewModel.set('person.name', this.value());
     });
@@ -120,8 +134,21 @@ $(function () {
     var drpd =  <kendo.ui.DropDownList>$("#ddl").data('kendoDropDownList');
     drpd.bind("select", function(sender,eventargs){
         viewModel.set('person.name', sender.dataItem.name);
+        
     });
 
+    $('#btnHere').kendoButton();
+    var btnH = <kendo.ui.Button>$('#btnHere').data("kendoButton");
+    btnH.bind("click", function(){
+        $.ajax({
+        type: "POST",
+        url: "http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/GetData",
+        dataType: "json",
+        success: function (response) {
+            alert('OK');
+        }
+    });
+    });
 
 
     // $('#treeview').kendoTreeView({
@@ -147,15 +174,7 @@ $(function () {
     kendo.bind($('#contentDdl'), vm);
     
     
-    // $("#ddl").data("kendoDropDownList").list.width(400);
-    // $("#ddl").kendoDropDownList({
-    //     dataBound: function(e){
-    //         console.log(this.dataItem());
-    //     },
-    //     select: function(e){
-    //         viewModel.set('person.name', e.dataItem);
-    //     }
-    // }).width(400)
+   
    
 
 });
