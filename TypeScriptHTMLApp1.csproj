@@ -17,9 +17,11 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
@@ -47,7 +49,20 @@
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="js\jquery-3.1.1.min.js" />
-    <Content Include="web.config" />
+    <Content Include="Model\StoredProcedure.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StoredProcedure.Context.cs</LastGenOutput>
+      <DependentUpon>StoredProcedure.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\StoredProcedure.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoredProcedure.edmx</DependentUpon>
+      <LastGenOutput>StoredProcedure.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service1.svc" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
@@ -60,6 +75,14 @@
     <Content Include="tsd.json" />
     <Content Include="css\images\kendoui.ttf" />
     <Content Include="css\images\kendoui.woff" />
+    <Content Include="packages.config" />
+    <EntityDeploy Include="Model\StoredProcedure.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoredProcedure.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\StoredProcedure.edmx.diagram">
+      <DependentUpon>StoredProcedure.edmx</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -67,7 +90,81 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Model\SelectStoredProcedureChristian3_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SelectStoredProcedureChristian4_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SelectStoredProcedureChristian_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagrams_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StoredProcedure.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedure.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StoredProcedure.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StoredProcedure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedure.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ufnGetContactInformation_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\uspGetBillOfMaterials1_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\uspGetBillOfMaterials_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\uspGetEmployeeManagers_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\uspGetManagerEmployees_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\uspGetWhereUsedProductID_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

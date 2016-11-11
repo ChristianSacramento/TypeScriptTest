@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AdventureWorks20143Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SelectStoredProcedureChristian" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="territoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectStoredProcedureChristian1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectStoredProcedureChristian3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectStoredProcedureChristian4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectStoredProcedureN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ufnGetAccountingEndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime" />
+        <Function Name="ufnGetAccountingStartDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime" />
+        <Function Name="ufnGetContactInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="PersonID" Type="int" Nullable="false" />
+                <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+                <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+                <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+                <Property Name="BusinessEntityType" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ufnGetDocumentStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="ufnGetProductDealerPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ufnGetProductListPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ufnGetProductStandardCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ufnGetPurchaseOrderStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="ufnGetSalesOrderStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="Status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="ufnGetStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ufnLeadingZeros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="Value" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetBillOfMaterials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartProductID" Type="int" Mode="In" />
+          <Parameter Name="CheckDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspGetBillOfMaterials1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartProductID" Type="int" Mode="In" />
+          <Parameter Name="CheckDate" Type="datetime" Mode="In" />
+          <Parameter Name="AltroParamentro" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="uspGetEmployeeManagers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetManagerEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetWhereUsedProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartProductID" Type="int" Mode="In" />
+          <Parameter Name="CheckDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspLogError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ErrorLogID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSearchCandidateResumes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="searchString" Type="nvarchar" Mode="In" />
+          <Parameter Name="useInflectional" Type="bit" Mode="In" />
+          <Parameter Name="useThesaurus" Type="bit" Mode="In" />
+          <Parameter Name="language" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateEmployeeHireInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
+          <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
+          <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="HireDate" Type="datetime" Mode="In" />
+          <Parameter Name="RateChangeDate" Type="datetime" Mode="In" />
+          <Parameter Name="Rate" Type="money" Mode="In" />
+          <Parameter Name="PayFrequency" Type="tinyint" Mode="In" />
+          <Parameter Name="CurrentFlag" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateEmployeeLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
+          <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
+          <Parameter Name="LoginID" Type="nvarchar" Mode="In" />
+          <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="HireDate" Type="datetime" Mode="In" />
+          <Parameter Name="CurrentFlag" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateEmployeePersonalInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
+          <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
+          <Parameter Name="NationalIDNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="MaritalStatus" Type="nchar" Mode="In" />
+          <Parameter Name="Gender" Type="nchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AdventureWorks20143ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdventureWorks20143Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="ufnGetContactInformation_Result">
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessEntityType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <EntityContainer Name="AdventureWorks20143StoredProcedure" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="ufnGetContactInformation" IsComposable="true" ReturnType="Collection(AdventureWorks20143Model.ufnGetContactInformation_Result)">
+            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectStoredProcedureChristian" ReturnType="Collection(AdventureWorks20143Model.SelectStoredProcedureChristian_Result)">
+            <Parameter Name="territoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectStoredProcedureChristian1" ReturnType="Collection(String)" />
+          <FunctionImport Name="SelectStoredProcedureChristian3" ReturnType="Collection(AdventureWorks20143Model.SelectStoredProcedureChristian3_Result)" />
+          <FunctionImport Name="SelectStoredProcedureChristian4" ReturnType="Collection(AdventureWorks20143Model.SelectStoredProcedureChristian4_Result)" />
+          <FunctionImport Name="SelectStoredProcedureN" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AdventureWorks20143Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AdventureWorks20143Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="uspGetBillOfMaterials" ReturnType="Collection(AdventureWorks20143Model.uspGetBillOfMaterials_Result)">
+            <Parameter Name="StartProductID" Mode="In" Type="Int32" />
+            <Parameter Name="CheckDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetBillOfMaterials1" ReturnType="Collection(AdventureWorks20143Model.uspGetBillOfMaterials1_Result)">
+            <Parameter Name="StartProductID" Mode="In" Type="Int32" />
+            <Parameter Name="CheckDate" Mode="In" Type="DateTime" />
+            <Parameter Name="AltroParamentro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetEmployeeManagers" ReturnType="Collection(AdventureWorks20143Model.uspGetEmployeeManagers_Result)">
+            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetManagerEmployees" ReturnType="Collection(AdventureWorks20143Model.uspGetManagerEmployees_Result)">
+            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetWhereUsedProductID" ReturnType="Collection(AdventureWorks20143Model.uspGetWhereUsedProductID_Result)">
+            <Parameter Name="StartProductID" Mode="In" Type="Int32" />
+            <Parameter Name="CheckDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspLogError">
+            <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspPrintError" />
+          <FunctionImport Name="uspSearchCandidateResumes">
+            <Parameter Name="searchString" Mode="In" Type="String" />
+            <Parameter Name="useInflectional" Mode="In" Type="Boolean" />
+            <Parameter Name="useThesaurus" Mode="In" Type="Boolean" />
+            <Parameter Name="language" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateEmployeeHireInfo">
+            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+            <Parameter Name="JobTitle" Mode="In" Type="String" />
+            <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RateChangeDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+            <Parameter Name="PayFrequency" Mode="In" Type="Byte" />
+            <Parameter Name="CurrentFlag" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateEmployeeLogin">
+            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+            <Parameter Name="LoginID" Mode="In" Type="String" />
+            <Parameter Name="JobTitle" Mode="In" Type="String" />
+            <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CurrentFlag" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateEmployeePersonalInfo">
+            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+            <Parameter Name="NationalIDNumber" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="MaritalStatus" Mode="In" Type="String" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SelectStoredProcedureChristian_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="Int32" Name="PersonID" Nullable="true" />
+          <Property Type="Int32" Name="StoreID" Nullable="true" />
+          <Property Type="Int32" Name="TerritoryID" Nullable="true" />
+          <Property Type="String" Name="AccountNumber" Nullable="false" MaxLength="10" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SelectStoredProcedureChristian3_Result">
+          <Property Type="String" Name="AccountNumber" Nullable="false" MaxLength="10" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectStoredProcedureChristian4_Result">
+          <Property Type="String" Name="AccountNumber" Nullable="false" MaxLength="10" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspGetBillOfMaterials_Result">
+          <Property Type="Int32" Name="ProductAssemblyID" Nullable="true" />
+          <Property Type="Int32" Name="ComponentID" Nullable="true" />
+          <Property Type="String" Name="ComponentDesc" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="TotalQuantity" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="StandardCost" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ListPrice" Nullable="true" Precision="19" />
+          <Property Type="Int16" Name="BOMLevel" Nullable="true" />
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetBillOfMaterials1_Result">
+          <Property Type="Int32" Name="ProductAssemblyID" Nullable="true" />
+          <Property Type="Int32" Name="ComponentID" Nullable="true" />
+          <Property Type="String" Name="ComponentDesc" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="TotalQuantity" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="StandardCost" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ListPrice" Nullable="true" Precision="19" />
+          <Property Type="Int16" Name="BOMLevel" Nullable="true" />
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetEmployeeManagers_Result">
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+          <Property Type="Int32" Name="BusinessEntityID" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OrganizationNode" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="ManagerFirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ManagerLastName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetManagerEmployees_Result">
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+          <Property Type="String" Name="OrganizationNode" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="ManagerFirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ManagerLastName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BusinessEntityID" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetWhereUsedProductID_Result">
+          <Property Type="Int32" Name="ProductAssemblyID" Nullable="true" />
+          <Property Type="Int32" Name="ComponentID" Nullable="true" />
+          <Property Type="String" Name="ComponentDesc" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="TotalQuantity" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="StandardCost" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ListPrice" Nullable="true" Precision="19" />
+          <Property Type="Int16" Name="BOMLevel" Nullable="true" />
+          <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorks20143ModelStoreContainer" CdmEntityContainer="AdventureWorks20143StoredProcedure">
+          <FunctionImportMapping FunctionName="AdventureWorks20143Model.Store.ufnGetContactInformation" FunctionImportName="ufnGetContactInformation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.ufnGetContactInformation_Result">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="BusinessEntityType" ColumnName="BusinessEntityType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectStoredProcedureChristian" FunctionName="AdventureWorks20143Model.Store.SelectStoredProcedureChristian">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.SelectStoredProcedureChristian_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectStoredProcedureChristian1" FunctionName="AdventureWorks20143Model.Store.SelectStoredProcedureChristian1" />
+          <FunctionImportMapping FunctionImportName="SelectStoredProcedureChristian3" FunctionName="AdventureWorks20143Model.Store.SelectStoredProcedureChristian3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.SelectStoredProcedureChristian3_Result">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectStoredProcedureChristian4" FunctionName="AdventureWorks20143Model.Store.SelectStoredProcedureChristian4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.SelectStoredProcedureChristian4_Result">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectStoredProcedureN" FunctionName="AdventureWorks20143Model.Store.SelectStoredProcedureN" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AdventureWorks20143Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AdventureWorks20143Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AdventureWorks20143Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AdventureWorks20143Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AdventureWorks20143Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AdventureWorks20143Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AdventureWorks20143Model.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="uspGetBillOfMaterials" FunctionName="AdventureWorks20143Model.Store.uspGetBillOfMaterials">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.uspGetBillOfMaterials_Result">
+                <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
+                <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+                <ScalarProperty Name="ComponentDesc" ColumnName="ComponentDesc" />
+                <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetBillOfMaterials1" FunctionName="AdventureWorks20143Model.Store.uspGetBillOfMaterials1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.uspGetBillOfMaterials1_Result">
+                <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
+                <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+                <ScalarProperty Name="ComponentDesc" ColumnName="ComponentDesc" />
+                <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetEmployeeManagers" FunctionName="AdventureWorks20143Model.Store.uspGetEmployeeManagers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.uspGetEmployeeManagers_Result">
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="OrganizationNode" ColumnName="OrganizationNode" />
+                <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+                <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetManagerEmployees" FunctionName="AdventureWorks20143Model.Store.uspGetManagerEmployees">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.uspGetManagerEmployees_Result">
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+                <ScalarProperty Name="OrganizationNode" ColumnName="OrganizationNode" />
+                <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+                <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+                <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetWhereUsedProductID" FunctionName="AdventureWorks20143Model.Store.uspGetWhereUsedProductID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.uspGetWhereUsedProductID_Result">
+                <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
+                <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+                <ScalarProperty Name="ComponentDesc" ColumnName="ComponentDesc" />
+                <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
+                <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspLogError" FunctionName="AdventureWorks20143Model.Store.uspLogError" />
+          <FunctionImportMapping FunctionImportName="uspPrintError" FunctionName="AdventureWorks20143Model.Store.uspPrintError" />
+          <FunctionImportMapping FunctionImportName="uspSearchCandidateResumes" FunctionName="AdventureWorks20143Model.Store.uspSearchCandidateResumes" />
+          <FunctionImportMapping FunctionImportName="uspUpdateEmployeeHireInfo" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeeHireInfo" />
+          <FunctionImportMapping FunctionImportName="uspUpdateEmployeeLogin" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeeLogin" />
+          <FunctionImportMapping FunctionImportName="uspUpdateEmployeePersonalInfo" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeePersonalInfo" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

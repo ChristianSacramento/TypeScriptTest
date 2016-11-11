@@ -73,6 +73,25 @@ var Person = (function (_super) {
         });
         return dataSource;
     };
+    Person.prototype.getGridDataSource = function () {
+        var listForGrid = null;
+        $.ajax({
+            url: '/Service1.svc/GetData',
+            dataType: 'json',
+            type: 'post',
+            contentType: 'application/json',
+            success: function (data, textStatus, jQxhr) {
+                listForGrid = JSON.parse(data.d);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+        var gridDataSource = new kendo.data.DataSource({
+            data: listForGrid
+        });
+        return gridDataSource;
+    };
     return Person;
 }(kendo.data.ObservableObject));
 var ViewModel = (function (_super) {
@@ -84,6 +103,12 @@ var ViewModel = (function (_super) {
     }
     return ViewModel;
 }(kendo.data.ObservableObject));
+var DTO = function () {
+    var self = this;
+    self.id = 0;
+    self.text = "";
+    self.ListAccountNumber = [];
+};
 $(function () {
     //Inizio creazione oggetto DTO da utilizzare per la DropDownList
     var objDTO = function () {
@@ -95,10 +120,10 @@ $(function () {
     //Fine creazione oggetto DTO da utlizzare per la DropDownList    
     var viewModel = new ViewModel();
     kendo.bind($('#divChristian'), viewModel);
-    $('#treeview').kendoTreeView({
-        dataSource: viewModel.person.getDataSource()
-    });
-    var trevi = $('#treeview').data('kendoTreeView');
+    //$('#treeview').kendoTreeView({
+    //    dataSource: viewModel.person.getDataSource()
+    //});
+    //var trevi = <kendo.ui.TreeView>$('#treeview').data('kendoTreeView');
     $('#txtIns').kendoMaskedTextBox({});
     var maskt = $('#txtIns').data('kendoMaskedTextBox');
     maskt.bind('change', function (sender, eventargs) {
@@ -116,30 +141,6 @@ $(function () {
     drpd.bind("select", function (sender, eventargs) {
         viewModel.set('person.name', sender.dataItem.name);
     });
-    $('#btnHere').kendoButton();
-    var btnH = $('#btnHere').data("kendoButton");
-    btnH.bind("click", function () {
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/GetData",
-            dataType: "json",
-            success: function (response) {
-                alert('OK');
-            }
-        });
-    });
-    // $('#treeview').kendoTreeView({
-    //     dragAndDrop: true,
-    //     checkboxes: {
-    //         name: "checkedItems[]"
-    //     },
-    //     select: function(e){
-    //         console.log("Selecting", e.node);
-    //         var nameSelected =  $(e.node).find('span.k-state-focused').text();
-    //         viewModel.set('person.name', nameSelected);
-    //     },  
-    //     dataSource: viewModel.person.getDataSource()
-    // });
     var vm = {
         foo: [
             { id: 1, name: "one" },
@@ -147,7 +148,53 @@ $(function () {
         ]
     };
     kendo.bind($('#contentDdl'), vm);
+    $('#grid').kendoGrid({
+        columns: [
+            {
+                field: 'AccountNumber',
+                title: 'AccountNumber'
+            }
+        ]
+    });
+    $('#grid').data('kendoGrid').setDataSource(viewModel.person.getGridDataSource());
+    var dto = new DTO();
+    $('#btnHere').kendoButton();
+    var btnH = $('#btnHere').data("kendoButton");
+    btnH.bind("click", function () {
+        $.ajax({
+            url: '/Service1.svc/GetData',
+            dataType: 'json',
+            type: 'post',
+            contentType: 'application/json',
+            success: function (data, textStatus, jQxhr) {
+                var list = JSON.parse(data.d);
+                var elem = _.map(list, mapper);
+                dto.ListAccountNumber.push(elem);
+                $('#treeview').kendoTreeView({
+                    dataSource: kendo.observableHierarchy(elem),
+                    loadOnDemand: true
+                }).data("kendoTreeView");
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    });
+    // $('#treeview').kendoTreeView({
+    //    dataSource:  caricaDati()
+    // });
+    //var trevi = <kendo.ui.TreeView>$('#treeview').data('kendoTreeView');
 });
+function mapper(value, key) {
+    var aaaaaaa = "";
+    var dto = new DTO();
+    dto.id = key;
+    dto.text = value.AccountNumber;
+    return dto;
+}
+function caricaDati() {
+    alert('CaricoDati');
+}
 window.onload = function () {
     // var el = document.getElementById('content');
     // var greeter = new Greeter(el);
