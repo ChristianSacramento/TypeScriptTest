@@ -344,5 +344,10 @@ namespace TypeScriptHTMLApp1.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateEmployeePersonalInfo", businessEntityIDParameter, nationalIDNumberParameter, birthDateParameter, maritalStatusParameter, genderParameter);
         }
+    
+        public virtual ObjectResult<GetElements_Result> GetElements()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetElements_Result>("GetElements");
+        }
     }
 }

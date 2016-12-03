@@ -22,9 +22,12 @@ namespace TypeScriptHTMLApp1
         [OperationContract]
         public string GetData()
         {
+            //AdventureWorks20143StoredProcedure dbContext = new AdventureWorks20143StoredProcedure();
+            //List<SelectStoredProcedureChristian_Result> listSelectStoredProcedureChristian_Result = dbContext.SelectStoredProcedureChristian(2).ToList<SelectStoredProcedureChristian_Result>();
+            //return Newtonsoft.Json.JsonConvert.SerializeObject(listSelectStoredProcedureChristian_Result.Take(5));
             AdventureWorks20143StoredProcedure dbContext = new AdventureWorks20143StoredProcedure();
-            List<SelectStoredProcedureChristian_Result> listSelectStoredProcedureChristian_Result = dbContext.SelectStoredProcedureChristian(2).ToList<SelectStoredProcedureChristian_Result>();
-            return Newtonsoft.Json.JsonConvert.SerializeObject(listSelectStoredProcedureChristian_Result.Take(5));
+            List<GetElements_Result> listGetElements_Result = dbContext.GetElements().ToList<GetElements_Result>();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(listGetElements_Result);
         }
 
         // Add more operations here and mark them with [OperationContract]

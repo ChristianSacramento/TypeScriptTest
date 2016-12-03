@@ -4,8 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdventureWorks20143Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AdventureWorks20143Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetElements" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SelectStoredProcedureChristian" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="territoryID" Type="int" Mode="In" />
         </Function>
@@ -139,8 +140,7 @@
           <Parameter Name="Gender" Type="nchar" Mode="In" />
         </Function>
         <EntityContainer Name="AdventureWorks20143ModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdventureWorks20143Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -153,10 +153,10 @@
         </ComplexType>
         <EntityContainer Name="AdventureWorks20143StoredProcedure" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="ufnGetContactInformation" IsComposable="true" ReturnType="Collection(AdventureWorks20143Model.ufnGetContactInformation_Result)">
-            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+          <Parameter Name="PersonID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectStoredProcedureChristian" ReturnType="Collection(AdventureWorks20143Model.SelectStoredProcedureChristian_Result)">
-            <Parameter Name="territoryID" Mode="In" Type="Int32" />
+          <Parameter Name="territoryID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectStoredProcedureChristian1" ReturnType="Collection(String)" />
           <FunctionImport Name="SelectStoredProcedureChristian3" ReturnType="Collection(AdventureWorks20143Model.SelectStoredProcedureChristian3_Result)" />
@@ -202,17 +202,17 @@
             <Parameter Name="AltroParamentro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspGetEmployeeManagers" ReturnType="Collection(AdventureWorks20143Model.uspGetEmployeeManagers_Result)">
-            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+          <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspGetManagerEmployees" ReturnType="Collection(AdventureWorks20143Model.uspGetManagerEmployees_Result)">
-            <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
+          <Parameter Name="BusinessEntityID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspGetWhereUsedProductID" ReturnType="Collection(AdventureWorks20143Model.uspGetWhereUsedProductID_Result)">
             <Parameter Name="StartProductID" Mode="In" Type="Int32" />
             <Parameter Name="CheckDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="uspLogError">
-            <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
+          <Parameter Name="ErrorLogID" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspPrintError" />
           <FunctionImport Name="uspSearchCandidateResumes">
@@ -244,6 +244,7 @@
             <Parameter Name="MaritalStatus" Mode="In" Type="String" />
             <Parameter Name="Gender" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetElements" ReturnType="Collection(AdventureWorks20143Model.GetElements_Result)" />
         </EntityContainer>
         <ComplexType Name="SelectStoredProcedureChristian_Result">
           <Property Type="Int32" Name="CustomerID" Nullable="false" />
@@ -321,6 +322,11 @@
           <Property Type="Decimal" Name="ListPrice" Nullable="true" Precision="19" />
           <Property Type="Int16" Name="BOMLevel" Nullable="true" />
           <Property Type="Int32" Name="RecursionLevel" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetElements_Result">
+          <Property Type="Int32" Name="IdElemento" Nullable="false" />
+          <Property Type="String" Name="Testo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDParent" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -469,6 +475,15 @@
           <FunctionImportMapping FunctionImportName="uspUpdateEmployeeHireInfo" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeeHireInfo" />
           <FunctionImportMapping FunctionImportName="uspUpdateEmployeeLogin" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeeLogin" />
           <FunctionImportMapping FunctionImportName="uspUpdateEmployeePersonalInfo" FunctionName="AdventureWorks20143Model.Store.uspUpdateEmployeePersonalInfo" />
+          <FunctionImportMapping FunctionImportName="GetElements" FunctionName="AdventureWorks20143Model.Store.GetElements">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AdventureWorks20143Model.GetElements_Result">
+                <ScalarProperty Name="IdElemento" ColumnName="IdElemento" />
+                <ScalarProperty Name="Testo" ColumnName="Testo" />
+                <ScalarProperty Name="IDParent" ColumnName="IDParent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

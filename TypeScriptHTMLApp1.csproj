@@ -91,6 +91,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\GetElements_Result.cs">
+      <DependentUpon>StoredProcedure.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SelectStoredProcedureChristian3_Result.cs">
       <DependentUpon>StoredProcedure.tt</DependentUpon>
     </Compile>
